@@ -1,0 +1,16 @@
+environment: dev
+debug: true
+url: :8080
+
+writetimeout: 15
+readtimeout: 15
+idletimeout: 60
+gracefultimeout: 15
+
+
+db:
+  - user: rss
+  - pass: rss
+  - host: db
+  - port: 5432
+  - name: rss
