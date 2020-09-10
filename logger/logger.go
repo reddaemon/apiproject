@@ -17,15 +17,29 @@ func GetLogger(cfg *config.Config) (*zap.Logger, error) {
 	switch cfg.Environment {
 	case "production":
 		l, err = zap.NewProduction()
+		defer func() {
+
+			err := l.Sync()
+			if err != nil {
+				l.Fatal(err.Error())
+			}
+		}()
 		if err != nil {
 			return nil, err
 		}
 	case "dev":
 		l, err = zap.NewDevelopment()
-		defer l.Sync()
+		defer func() {
+
+			err := l.Sync()
+			if err != nil {
+				l.Fatal(err.Error())
+			}
+		}()
 		if err != nil {
 			return nil, err
 		}
+
 	default:
 		l = zap.NewExample()
 	}
