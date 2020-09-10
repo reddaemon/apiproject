@@ -24,7 +24,7 @@ test:
 clean:
 	rm -f ${APP}
 
-build: test clean
+build: clean
 	CGO_ENABLED=0 GOOS=${GOOS} GOARCH=${GOARCH} go build \
 		-ldflags "-s -w -X ${PROJECT}/version.Release=${RELEASE} \
         -X ${PROJECT}/version.Commit=${COMMIT} -X ${PROJECT}/version.BuildTime=${BUILD_TIME}" \

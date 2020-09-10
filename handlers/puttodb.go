@@ -47,8 +47,8 @@ func PutToDb(w http.ResponseWriter, _ *http.Request) {
 		log.Fatal("Cannot retrieve url and parse", err)
 	}
 	for _, i := range feed.Items {
-		err = postgres.PsqlRepository.InsertToDB(r, ctx, feed, i.Title, i.Link, i.Published)
-		fmt.Fprint(w, "Done")
+		err = postgres.PsqlRepository.InsertToDB(r, ctx, i.Title, i.Link, i.Published)
+		fmt.Fprint(w, i.Title, i.Link, i.Published, " ", "Done")
 		if err != nil {
 			return
 		}
