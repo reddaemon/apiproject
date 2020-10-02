@@ -7,6 +7,8 @@ readtimeout: 15
 idletimeout: 60
 gracefultimeout: 15
 
+workers: 4
+
 
 db:
   - user: rss

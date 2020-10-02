@@ -18,6 +18,7 @@ type Config struct {
 	Debug           bool
 	Db              map[string]string
 	URL             string
+	Workers         int
 }
 
 func GetConfig(configPath string) (*Config, error) {

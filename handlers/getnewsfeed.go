@@ -23,7 +23,7 @@ func GetNewsFeed(w http.ResponseWriter, _ *http.Request) {
 	fp := gofeed.NewParser()
 	ctx, cancel := context.WithTimeout(context.Background(), 60*time.Second)
 	defer cancel()
-	feed, err := fp.ParseURLWithContext("https://www.sports.ru/stat/export/rss/taglenta.xml?id=1044512", ctx)
+	feed, err := fp.ParseURLWithContext("https://www.sports.ru/rss/all_news.xml", ctx)
 	if err != nil {
 		log.Fatal("Cannot retrieve url and parse", err)
 	}
